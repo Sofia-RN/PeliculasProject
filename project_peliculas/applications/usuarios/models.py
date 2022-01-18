@@ -5,10 +5,11 @@ from django.db import models
 
 class User(TimeStampedModel):
     id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=40, unique=True)
-    nombre = models.CharField(max_length=30)
-    email = models.EmailField()
-    edad = models.PositiveIntegerField()
+    username = models.CharField(max_length=40, unique=True, blank=True, null=True)
+    nombre = models.CharField(max_length=30, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    edad = models.PositiveIntegerField(blank=True, null=True)
+    password = models.CharField('password',max_length=40, blank=True, null=True)
 
     class Meta:
         verbose_name = 'User'
