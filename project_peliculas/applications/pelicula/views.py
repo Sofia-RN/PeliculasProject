@@ -30,4 +30,4 @@ class PeliculaFiltrarApiView(ListAPIView):
         return Pelicula.objects.filter(
             fecha__icontains=kword
         )
-        # order_by('apellidos', 'nombre', 'id')
+

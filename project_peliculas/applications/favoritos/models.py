@@ -19,4 +19,4 @@ class Favoritos(TimeStampedModel):
         related_name='Peliculas_fav')
     
     def __str__(self):
-        return self.pelicula.nombre
+        return self.pelicula.nombre + ' - ' + self.user.nombre
