@@ -8,6 +8,14 @@ from .models import Pelicula
 from .serializers import PeliculaSerializer
 
 
+class PeliListApiView(ListAPIView):
+    #serializar los datos
+    serializer_class = PeliculaSerializer
+
+    def get_queryset(self):
+        return Pelicula.objects.all()
+
+
 class PeliculaBuscarApiView(ListAPIView):
         #serializar los datos
     serializer_class = PeliculaSerializer

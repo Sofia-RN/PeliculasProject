@@ -15,6 +15,9 @@ urlpatterns = [
         'api/pelicula/filtrar/<kword>/',
         views.PeliculaFiltrarApiView.as_view(),
     ),
-    
+    path(
+        'api/peliculas/',
+        views.PeliListApiView.as_view(),
+    ),
 
 ]
