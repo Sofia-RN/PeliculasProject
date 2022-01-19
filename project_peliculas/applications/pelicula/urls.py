@@ -13,7 +13,7 @@ urlpatterns = [
     ),
     path(
         'api/pelicula/filtrar/<kword>/',
-        views.PeliculaBuscarApiView.as_view(),
+        views.PeliculaFiltrarApiView.as_view(),
     ),
     
 

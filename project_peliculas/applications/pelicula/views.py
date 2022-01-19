@@ -40,6 +40,6 @@ class PeliculaFiltrarApiView(ListAPIView):
         #Filtrar datos
         kword = self.kwargs['kword']
         return Pelicula.objects.filter(
-            fecha__icontains=kword
+            rango__icontains=kword
         )
         # order_by('apellidos', 'nombre', 'id')

@@ -9,7 +9,7 @@ class User(TimeStampedModel):
     nombre = models.CharField(max_length=30, blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     edad = models.PositiveIntegerField(blank=True, null=True)
-    password = models.CharField('password',max_length=40, blank=True, null=True)
+    password = models.TextField('password', blank=True, null=True)
 
     class Meta:
         verbose_name = 'User'

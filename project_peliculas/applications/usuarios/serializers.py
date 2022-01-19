@@ -8,3 +8,8 @@ class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('__all__') #Trae todos los datos
+
+class LoginUserSerializer(serializers.Serializer):
+
+    email = serializers.CharField()
+    password = serializers.CharField()
