@@ -1,23 +1,12 @@
 from django.shortcuts import render
 from django.db.models import Q
-from rest_framework.generics import (
-    ListAPIView,
-    CreateAPIView,
-    RetrieveAPIView, 
-    DestroyAPIView,
-    UpdateAPIView,
-    RetrieveUpdateAPIView,
-)
+from rest_framework.generics import ListAPIView
 #models
 from .models import Pelicula
 
 #serializer
-from .serializers import (
-    PeliculaSerializer,
-)
+from .serializers import PeliculaSerializer
 
-
-# Create your views here.
 
 class PeliculaBuscarApiView(ListAPIView):
         #serializar los datos
@@ -27,9 +16,8 @@ class PeliculaBuscarApiView(ListAPIView):
         #Filtrar datos
         kword = self.kwargs['kword']
         return Pelicula.objects.filter(
-            nombre__icontains=kword
+            Q(nombre__icontains=kword) | Q(rango__icontains=kword)
         )
-
 
 
 class PeliculaFiltrarApiView(ListAPIView):
@@ -40,6 +28,6 @@ class PeliculaFiltrarApiView(ListAPIView):
         #Filtrar datos
         kword = self.kwargs['kword']
         return Pelicula.objects.filter(
-            rango__icontains=kword
+            fecha__icontains=kword
         )
         # order_by('apellidos', 'nombre', 'id')
